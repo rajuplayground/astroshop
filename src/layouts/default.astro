@@ -1,0 +1,46 @@
+---
+const navlist = [
+    {
+        path: "/shop",
+        label: "Shop"
+    },
+    {
+        path: "/blog",
+        label: "Blog"
+    },
+    {
+        path: "/about",
+        label: "About"
+    }
+]
+---
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@700&display=swap"
+			rel="stylesheet"
+		/>
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro</title>
+	</head>
+	<body>
+        <header class="bg-gray-100">
+            <div class="py-4 px-5 flex justify-between min-w-[400px]">
+                <a href="" class="font-cursive text-2xl"><span>🌭</span>sndwch</a>
+                <nav>
+                    <ul class="flex gap-5 font-semibold text-2xl">
+                        {
+                            navlist.map(item => <li><a href={item.path}>{item.label}</a></li>)
+                        }
+                    </ul>
+                </nav>
+            </div>
+        </header>
+  <slot />
+	</body>
+</html>
