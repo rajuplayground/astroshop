@@ -1,0 +1,40 @@
+---
+import { AddToCart } from '../components/add-to-cart';
+function formatCurrency(amount: number) {
+	return new Intl.NumberFormat('en-US', {
+		currency: 'usd',
+		style: 'currency',
+	}).format(amount);
+}
+
+const result = await fetch(
+	'https://astro-frontend-masters-api.netlify.app/api/products'
+);
+
+if (!result.ok) {
+	console.error(result);
+}
+
+const products: ShopItem[] = await result.json();
+
+interface Props {
+	count?: number;
+}
+const { count = Infinity } = Astro.props;
+---
+
+<section>
+	<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+		{
+			products.slice(0, count).map((p) => (
+				<div class="space-y-3">
+					<img src={p.image.src} alt={p.image.alt} />
+					<h3 class="text-xl font-cursive">{p.title}</h3>
+					<p>{p.description}</p>
+					<p>{formatCurrency(p.price)}</p>
+					<AddToCart client:only="react" />
+				</div>
+			))
+		}
+	</div>
+</section>

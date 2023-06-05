@@ -5,7 +5,12 @@ module.exports = {
         extend: {
             fontFamily: {
                 'cursive': "DynaPuff, cursive",
-            }
+            },
+            screens: {
+                'xsm': '450px',
+                'xmd': '600px',
+                'xlg': '900px',
+            },
         },
     },
     plugins: [],

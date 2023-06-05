@@ -1,7 +1,85 @@
 ---
-import Layout from '../layouts/default.astro'
+import Layout from '../layouts/default.astro';
+import ShopItems from '../components/shop-items.astro';
 ---
 
 <Layout>
-    <h1>This is a cool place</h1>
+	<main>
+		<div
+			class="relative isolate overflow-hidden flex aspect-[2/3] xsm:aspect-[4/5] xmd:aspect-[3/2] xlg:aspect-[2.5/1] p-5 xmd:items-center px-[2rem] py-[5%] xmd:justify-start xmd:pl-[60%]"
+		>
+			<div class="relative z-10 flex flex-col gap-3">
+				<h2 class="text-5xl font-cursive max-w-[13ch]">
+					All Sandwiches. All the time.
+				</h2>
+				<p class="text-2xl max-w-[25ch]">
+					The world’s leading sandwich connoisseurs trust sndwch.
+				</p>
+				<a
+					href="/shop"
+					class="bg-black text-white font-bold text-lg self-start px-6 py-2 rounded-md"
+					>Shop Sandwich Kits</a
+				>
+			</div>
+			<img
+				src="/sandwich-hero.jpg"
+				class="absolute z-0 inset-0 object-cover h-[135%] w-[135%] object-[20%_0%] xsm:h-[120%] xsm:w-[120%] xsm:object-[35%_50%] xmd:h-[110%] xmd:w-[100%] xmd:object-[65%_50%] xlg:h-[100%] xlg:object-[50%_50%]"
+				alt=""
+			/>
+		</div>
+		<div class="p-5 flex flex-col items-center gap-10 max-w-4xl mx-auto">
+			<ShopItems count={3} />
+			<p>
+				<a href="/shop" class="underline text-lg"
+					>Shop All Sandwich Kits &rarr;</a
+				>
+			</p>
+		</div>
+		<div>
+			<div class="bg-gray-200 py-10 px-5">
+				<div
+					class="flex flex-col gap-5 xmd:flex-row justify-center items-center"
+				>
+					<img src="/newsletter.jpg" alt="" class="w-[250px]" />
+					<div class="space-y-4">
+						<h2 class="font-cursive text-2xl">Prefer your sandwiches to go?</h2>
+						<p>
+							Get the sndwch newsletter to hear what else qualifies as a
+							sandwich first!
+						</p>
+						<form method="post" class="flex flex-col gap-5">
+							<div class="flex flex-col">
+								<label for="name" class="text-sm mb-2">Name</label>
+								<input
+									type="text"
+									id="name"
+									name="name"
+									required
+									class="border-black border text-lg px-1 py-1"
+								/>
+							</div>
+							<div class="flex flex-col">
+								<label for="email" class="text-sm mb-2">Email</label>
+								<input
+									type="email"
+									id="email"
+									name="email"
+									required
+									class="border border-black text-lg px-1 py-1"
+								/>
+							</div>
+							<button
+								type="submit"
+								class="bg-black text-white font-bold text-lg xmd:self-start px-6 py-2 rounded-md self-center"
+								>Subscribe</button
+							>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer class="px-5 py-8">
+			<p class="text-center">Copyright for Sandwich Shop</p>
+		</footer>
+	</main>
 </Layout>
