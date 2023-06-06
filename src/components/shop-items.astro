@@ -19,8 +19,9 @@ const products: ShopItem[] = await result.json();
 
 interface Props {
 	count?: number;
+	addToCart?: boolean;
 }
-const { count = Infinity } = Astro.props;
+const { count = Infinity, addToCart = true } = Astro.props;
 ---
 
 <section>
@@ -32,7 +33,7 @@ const { count = Infinity } = Astro.props;
 					<h3 class="text-xl font-cursive">{p.title}</h3>
 					<p>{p.description}</p>
 					<p>{formatCurrency(p.price)}</p>
-					<AddToCart client:only="react" />
+					{addToCart && <AddToCart item={p} client:only="react" />}
 				</div>
 			))
 		}

@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/page.astro';
 import ShopItems from '../components/shop-items.astro';
+import Cart from '../components/cart';
 ---
 
 <Layout>
@@ -9,61 +10,7 @@ import ShopItems from '../components/shop-items.astro';
 		<div class="flex py-5 gap-5">
 			<ShopItems />
 			<div class="w-[300px] shrink-0 px-4">
-				<div>
-					<p class="text-2xl font-cursive mb-5">Your Cart</p>
-					<!-- <div class="space-y-5 mt-5">
-            <p class="text-center text-4xl">🌭</p>
-            <p>
-              Your cart is empty! Add a sandwich kit or two and give flavor a
-              chance.
-            </p>
-          </div> -->
-					<div
-						class="divide-y divide-gray-200 border-gray-200 border-t-[1px] border-b-[1px]"
-					>
-						<div class="flex items-baseline gap-2 py-3">
-							<p>1</p>
-							<p class="w-[60%]">Beef Frankie Hoagie Sandwich Kit</p>
-							<button class="font-cursive text-sm">X</button>
-							<p class="flex-1 text-right">19</p>
-						</div>
-						<div class="flex items-baseline gap-2 py-3">
-							<p>1</p>
-							<p class="w-[60%]">Colorful Sugar Sandwich Kit</p>
-							<button class="font-cursive text-sm">X</button>
-							<p class="flex-1 text-right">29</p>
-						</div>
-						<div class="flex items-baseline gap-2 py-3">
-							<p>2</p>
-							<p class="w-[60%]">Open-Faced Cold Cuts & Cheese Sandwich Kit</p>
-							<button class="font-cursive text-sm">X</button>
-							<p class="flex-1 text-right">24</p>
-						</div>
-					</div>
-					<div class="space-y-5 py-5">
-						<div class="space-y-2">
-							<div class="flex justify-between">
-								<p>Subtotal:</p>
-								<p>$96.00</p>
-							</div>
-							<div class="flex justify-between">
-								<p>Shipping:</p>
-								<p>
-									<del>$10.00</del><ins class="no-underline pl-2">FREE</ins>
-								</p>
-							</div>
-							<div class="flex justify-between">
-								<p>Total:</p>
-								<p>$96.00</p>
-							</div>
-						</div>
-						<button
-							class="bg-black text-white font-bold text-lg self-start px-6 py-2 rounded-md"
-						>
-							Check Out
-						</button>
-					</div>
-				</div>
+				<Cart client:only="react" />
 			</div>
 		</div>
 	</section>
