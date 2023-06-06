@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/default.astro';
 import ShopItems from '../components/shop-items.astro';
+import UserMailForm from '../components/user-mailform.astro';
 ---
 
 <Layout>
@@ -47,33 +48,7 @@ import ShopItems from '../components/shop-items.astro';
 							Get the sndwch newsletter to hear what else qualifies as a
 							sandwich first!
 						</p>
-						<form method="post" class="flex flex-col gap-5">
-							<div class="flex flex-col">
-								<label for="name" class="text-sm mb-2">Name</label>
-								<input
-									type="text"
-									id="name"
-									name="name"
-									required
-									class="border-black border text-lg px-1 py-1"
-								/>
-							</div>
-							<div class="flex flex-col">
-								<label for="email" class="text-sm mb-2">Email</label>
-								<input
-									type="email"
-									id="email"
-									name="email"
-									required
-									class="border border-black text-lg px-1 py-1"
-								/>
-							</div>
-							<button
-								type="submit"
-								class="bg-black text-white font-bold text-lg xmd:self-start px-6 py-2 rounded-md self-center"
-								>Subscribe</button
-							>
-						</form>
+						<UserMailForm />
 					</div>
 				</div>
 			</div>

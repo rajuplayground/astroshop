@@ -1,5 +1,7 @@
 ---
 import { AddToCart } from '../components/add-to-cart';
+import { getProducts } from '../data/products';
+
 function formatCurrency(amount: number) {
 	return new Intl.NumberFormat('en-US', {
 		currency: 'usd',
@@ -7,15 +9,17 @@ function formatCurrency(amount: number) {
 	}).format(amount);
 }
 
-const result = await fetch(
-	'https://astro-frontend-masters-api.netlify.app/api/products'
-);
+// const result = await fetch(
+// 	'https://astro-frontend-masters-api.netlify.app/api/products'
+// );
 
-if (!result.ok) {
-	console.error(result);
-}
+// if (!result.ok) {
+// 	console.error(result);
+// }
 
-const products: ShopItem[] = await result.json();
+// const products: ShopItem[] = await result.json();
+
+const products: ShopItem[] = await getProducts();
 
 interface Props {
 	count?: number;
