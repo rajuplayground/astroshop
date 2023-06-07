@@ -10,8 +10,6 @@ if (Astro.request.method === 'POST') {
 		const name = data.get('name');
 		const email = data.get('email');
 
-		// TODO save the user info to your newsletter service
-
 		message = `Subscribed as “${name}” with email “${email}”.`;
 	} catch (error) {
 		console.error(error);
